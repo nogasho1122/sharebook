@@ -3,8 +3,9 @@
   <head>
     <title>ShareBook</title>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript">
       WebFontConfig = {
         google: { families: [ 'Unica+One::latin' ] }
@@ -19,6 +20,7 @@
         s.parentNode.insertBefore(wf, s);
       })();
     </script>
+
   </head>
 
   <body>
@@ -31,7 +33,7 @@
             <ul class ="user__info">
               <li>
                 <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                <%= link_to "メール","/"%>
+                <%= link_to "GoogleMap", "/maps"%>
                 <%= link_to "ログアウト", destroy_user_session_path,method: :delete %>
               </li>
             </ul>
