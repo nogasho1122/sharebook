@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: pictweet10_production
+  # database: pictweet10_production
   adapter: postgresql
   encoding: unicode
   pool: 5
