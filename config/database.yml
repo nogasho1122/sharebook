@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: pictweet10_production
-  username: pictweet10
-  password: <%= ENV['PICTWEET10_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
