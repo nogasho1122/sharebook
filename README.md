@@ -1,32 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
- 
-"sharebook"が何かを簡潔に紹介する
+"sharebook"
 [![Image from Gyazo](https://i.gyazo.com/f4358de5a288c877ab1227f72dcfc956.jpg)](https://gyazo.com/f4358de5a288c877ab1227f72dcfc956)
  
 # DEMO
