@@ -1,6 +1,8 @@
 # title
 ## sharebook
 http://52.194.72.97/
+デモ用：メールアドレス:pata@gmail.com
+     ：   パスワード：1234567
 [![Image from Gyazo](https://i.gyazo.com/f4358de5a288c877ab1227f72dcfc956.jpg)](https://gyazo.com/f4358de5a288c877ab1227f72dcfc956)
  
 # DEMO
