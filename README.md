@@ -27,6 +27,7 @@ Things you may want to cover:
 分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
  
 "sharebook"が何かを簡潔に紹介する
+[![Image from Gyazo](https://i.gyazo.com/f4358de5a288c877ab1227f72dcfc956.jpg)](https://gyazo.com/f4358de5a288c877ab1227f72dcfc956)
  
 # DEMO
  
