@@ -17,105 +17,93 @@
 
 
 
-$(window).on('load',function(){
-  var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+var map;
+window.onload = function() {
+  // 初期設定
+  var MyLatLng = new google.maps.LatLng(37.916194,139.036389);
   var Options = {
-  zoom: 15,      //地図の縮尺値
-  center: MyLatLng,    //地図の中心座標
-  mapTypeId: 'roadmap'   //地図の種類
+  zoom: 6, //地図の縮尺値
+  center: MyLatLng, //地図の中心座標
+  mapTypeId: 'roadmap' //地図の種類
   };
-  var map = new google.maps.Map(document.getElementById('map'), Options);
-});
-var getMap = (function() {
-  function codeAddress(address) {
-    // google.maps.Geocoder()コンストラクタのインスタンスを生成
-    var geocoder = new google.maps.Geocoder();
- 
-    // 地図表示に関するオプション
-    var mapOptions = {
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
- 
-    // 地図を表示させるインスタンスを生成
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-     
-    //マーカー変数用意
-    var marker;
-     
-    // geocoder.geocode()メソッドを実行 
-    geocoder.geocode( { 'address': address}, function(results, status) {
-       
-      // ジオコーディングが成功した場合
-      if (status == google.maps.GeocoderStatus.OK) {
-         
-        // 変換した緯度・経度情報を地図の中心に表示
-        map.setCenter(results[0].geometry.location);
-         
-        //☆表示している地図上の緯度経度
-        document.getElementById('lat').value=results[0].geometry.location.lat();
-        document.getElementById('lng').value=results[0].geometry.location.lng();
-         
-        // マーカー設定
-        marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-       
-      // ジオコーディングが成功しなかった場合
-      } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-      }
-     
-    });
-     
-    // マップをクリックで位置変更
-    map.addListener('click', function(e) {
-      getClickLatLng(e.latLng, map);
-    });
-    function getClickLatLng(lat_lng, map) {
-       
-      //☆表示している地図上の緯度経度
-      document.getElementById('lat').value=lat_lng.lat();
-      document.getElementById('lng').value=lat_lng.lng();
-         
-      // マーカーを設置
-      marker.setMap(null);
-      marker = new google.maps.Marker({
-        position: lat_lng,
-        map: map
-      });
-     
-      // 座標の中心をずらす
-      map.panTo(lat_lng);
-    }
-   
-  }
-   
-  //inputのvalueで検索して地図を表示
-  return {
-    getAddress: function() {
-      // ボタンに指定したid要素を取得
-      var button = document.getElementById("map_button");
-       
-      // ボタンが押された時の処理
-      button.onclick = function() {
-        // フォームに入力された住所情報を取得
-        var address = document.getElementById("address").value;
-        // 取得した住所を引数に指定してcodeAddress()関数を実行
-        codeAddress(address);
-      }
-       
-      //読み込まれたときに地図を表示
-      window.onload = function(){
-        // フォームに入力された住所情報を取得
-        var address = document.getElementById("address").value;
-        // 取得した住所を引数に指定してcodeAddress()関数を実行
-        codeAddress(address);
-      }
-    }
-   
-  };
- 
-})();
-getMap.getAddress();
+  map = new google.maps.Map(document.getElementById('map'), Options);
+}
+//   // じゃんけんトンネルのマーク
+//   var marker = new google.maps.Marker({
+//   position: new google.maps.LatLng(35.823665, 139.920940),
+//   map: map,
+//   });
+//   var myInfoWindow = new google.maps.InfoWindow({
+//   // 吹き出しに出す文
+//   content: "じゃんけんトンネル"
+//   });
+//   // 吹き出しを開く
+//   myInfoWindow.open(map, marker);
+//   // 吹き出しが閉じられたら、マーカークリックで再び開くようにしておく
+//   google.maps.event.addListener(myInfoWindow, "closeclick", function() {
+//   google.maps.event.addListenerOnce(marker, "click", function(event) {
+//   myInfoWindow.open(map, marker);
+//   });
+//   });
+//   // 基幹バスレーンのマーク
+//   var marker = new google.maps.Marker({
+//   position: new google.maps.LatLng(35.182952, 136.954826),
+//   map: map,
+//   });
+//   var myInfoWindow = new google.maps.InfoWindow({
+//   // 吹き出しに出す文
+//   content: "魔の道路"
+//   });
+//   // 吹き出しを開く
+//   myInfoWindow.open(map, marker);
+//   // 吹き出しが閉じられたら、マーカークリックで再び開くようにしておく
+//   google.maps.event.addListener(myInfoWindow, "closeclick", function() {
+//   google.maps.event.addListenerOnce(marker, "click", function(event) {
+//   myInfoWindow.open(map, marker);
+//   });
+//   });
+//   //mapをクリックしたときのイベントを設定
+//   google.maps.event.addListener(map, 'click', mylistener);
+
+//   // function initialize() {
+//   // // 地図を表示する際のオプションを設定
+//   // // Mapオブジェクトに地図表示要素情報とオプション情報を渡し、インスタンス生成
+//   // map = new google.maps.Map(document.getElementById("map”),
+//   // mapOptions);
+//   // }
+//   function search(){
+//   var place = document.getElementById('place').value;
+//   var geocoder = new google.maps.Geocoder();
+//   // ジオコーディング検索実行
+//   geocoder.geocode({"address" : place}, function(results, status) {
+//   if (status == google.maps.GeocoderStatus.OK) {
+//   var lat = results[0].geometry.location.lat();//緯度を取得
+//   var lng = results[0].geometry.location.lng();//経度を取得
+//   var ido = document.getElementById('ido')
+//   ido.innerHTML = lat;
+//   var keido = document.getElementById('keido')
+//   keido.innerHTML = lng;
+//   var mark = {
+//   lat: lat, // 緯度
+//   lng: lng // 経度
+//   };
+//   marker = new google.maps.Marker({ // マーカーの追加
+//   position: mark, // マーカーを立てる位置を指定
+//   map: map // マーカーを立てる地図を指定
+//   });
+//   map.setCenter(results[0].geometry.location); // 地図の中心を移動
+//   cnt =0;
+//   }
+//   });
+//   //}
+//   }
+//   //クリックしたときの処理
+//   function mylistener(event){
+//   //marker作成
+//   var marker = new google.maps.Marker();
+//   //markerの位置を設定
+//   //event.latLng.lat()でクリックしたところの緯度を取得
+//   marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
+//   //marker設置
+//   marker.setMap(map);
+// };

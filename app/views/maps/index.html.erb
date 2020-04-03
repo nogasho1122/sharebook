@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-
-<meta charset="UTF-8">
-<title>Sample_GoogleMap</title>
-
-
-
-</head>
-
 <body>
   <div class ="main">
     <div class ="maps">
       <div id="map"></div>
       <div class ="search_m">
         <input type ="text" placeholder = "検索" value = "" id = "place">
-        <button type ="button" onclick ="search()" class ="btn"><i class ="fa fa-search-location"></i></button>
+        <button type ="button" onclick ="search()" class ="btn"></button>
+        <span>緯度：</span><span id=“ido”></span><br />
+        <span>経度：</span><span id=“keido”></span>
       </div>
      </div>
+     <%= javascript_include_tag "application.js" %>
     <div class="left_menu">
       <a>未来屋書店</a>
       <a>宮脇書店</a>
@@ -37,6 +31,6 @@
 
  
 
-<%= javascript_include_tag "application.js" %>
+
 </body>
 </html>
