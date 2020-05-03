@@ -30,7 +30,6 @@ window.onload = function() {
 }
 
 // 試しコード
-
 //検索ボタンをクリックしたとき
 $('#searchAddressBtn').click(function () {
     //Geocoderオブジェクト生成
