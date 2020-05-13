@@ -12,6 +12,7 @@ $(function() {
     } else {
       var current_user = ""
     }
+    
     var html = `<div class="content_post" style="background-image: url(${tweet.image});">
                   <div class="more">
                     <span><img src="/assets/arrow_top.png"></span>
