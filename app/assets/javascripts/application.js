@@ -29,6 +29,8 @@ window.onload = function() {
   map = new google.maps.Map(document.getElementById('map'), Options);
 }
 
+
+
 // 試しコード
 //検索ボタンをクリックしたとき
 $('#searchAddressBtn').click(function () {
@@ -63,3 +65,5 @@ $('#searchAddressBtn').click(function () {
             }
     );
 });
+
+// いいね機能
